@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Steam Print</title>
+</head>
+
+<body>
+    <div id="header" class="div">
+        <p>SteamPrint</p>
+    </div>
+    <div id="main">
+        <form method="post" enctype="multipart/form-data">
+            <div id="a"> <input type="file" name="label" id="label">
+                <img src="{{ url_for('static', filename='img.png') }}"   id="img">
+                <img src="{{ url_for('static', filename='img1.png') }}"   id="img1">
+            </div>
+            <div id="imgname"><p>Select a PDF file</p></div>
+            <div>
+                <label for="" class="div">Would you like to adjust your label?</label>
+                <div class="c"> <label>
+                        <input type="checkbox" name="adjust"> Yes
+                    </label></div>
+                <div class="c"><label>
+                        <input type="checkbox"> No
+                    </label></div>
+            </div>
+
+            <div class="div">
+                <button type="submit" id="print_btn">Print</button>
+            </div>
+        </form>
+    </div>
+<script>
+      document.getElementById('img').addEventListener('click', function() {
+            document.getElementById('label').click();
+        });
+
+        document.getElementById('label').addEventListener('change', function() {
+            document.getElementById("img").style.display = "none";
+            document.getElementById("img1").style.background = "#0cce6a";
+            document.getElementById("img1").style.display = "block";
+
+
+            imgname = document.getElementById("label").value;
+            document.getElementById("imgname").firstChild.textContent ="Selected File: "+imgname
+
+        });
+
+    
+
+</script>
+
+
+</body>
+
+</html>
